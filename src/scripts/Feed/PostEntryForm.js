@@ -1,5 +1,6 @@
 
 
+
 export const PostEntryForm = ()=>{
 
 let html = `
@@ -10,7 +11,7 @@ let html = `
 <input type="text" name="postURL" class="newPost_input" placeholder="URL of gif " />
 </section>
 <section class="story">
-<textarea name="description" class="newPost_description" placeholder=" Story behind your gif... "> </textarea>
+<textarea id="description" class="newPost_description" placeholder="Story behind your gif..."></textarea>
 </section>
 
 <section>
