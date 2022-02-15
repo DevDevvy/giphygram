@@ -1,6 +1,6 @@
+// This module is responsible for generating the HTML representation for the post entry form.
 
-
-
+//export a function that creates the HTML elements for the post form
 export const PostEntryForm = ()=>{
 
 let html = `
@@ -23,3 +23,16 @@ let html = `
 return html
 
 }
+
+
+
+
+//create a click event listener that listens for the save button selection
+//get the value for the input fields in the post form
+//store the values in the posts array / permanent state
+
+
+//create a click event listener that listens for the cancel button selection
+//collapses post entry form when selected - custom event
+
+

@@ -1,3 +1,4 @@
+//create an applicationState object to store API, transient state, and permanent state
 const applicationState = {
     users: [],
     posts: [],
@@ -12,7 +13,7 @@ const applicationState = {
     }
 }
 
-// HTTP GET Request with Fetch
+//HTTP GET Request with Fetch
 const API = "http://giffyapi.nss.team/"
 
 export const fetchUsers = () => {
@@ -25,7 +26,8 @@ export const fetchUsers = () => {
         )
 }
 
-// returns a copy of the state
+//GETS data from API
+//returns a copy of the state
 export const getUsers = () => {
     return applicationState.users.map(user => ({...user}))
 }
@@ -85,3 +87,18 @@ export const fetchFollows = () => {
 export const getFollows = () => {
     return applicationState.follows.map(follow => ({...follow}))
 }
+
+
+//create a click event listener that listens for the logout button and clears localStorage
+
+//delete method fetch() to delete messages and includes a custom event for stateChanged
+
+//POST method fetch to save messages to inbox and dispatch custom event for stateChanged - to permanent state
+//POST method saves to permanent state/setter for API
+
+//POST method fetch to save posts to feed and dispatch custom event for stateChanged - to permanent state
+
+//set item function is used with localStorage
+
+//setter functions that fetch from API to applicationState for new message, current user, display favorites, new posts, and date posted
+//SET takes user choices and stores in the applicationState
