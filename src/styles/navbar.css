@@ -1,0 +1,32 @@
+
+
+
+
+#logo {
+    width: 4em;
+}
+
+.pen_icon {
+    height: 2em;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.pen_and_count {
+    display: flex;
+    height: 3em;
+    
+}
+
+.company_name {
+    font-size: 25px;
+    padding: 0;
+}
+.message_count {
+    font-size: 2em;
+    align-self: flex-end;
+}
