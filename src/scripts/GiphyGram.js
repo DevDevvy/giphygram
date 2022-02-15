@@ -1,5 +1,5 @@
 import { PostEntryForm } from "./Feed/PostEntryForm.js"
-
+import {Post} from "./Feed/Post.js"
 //create overall HTML structure and invoke each sections function that generates HTML
 export const GiphyGram = () => {
     return `
@@ -19,7 +19,7 @@ export const GiphyGram = () => {
       </section>
      
       <section class="postFeed">
-        
+      Post should be here  ${Post()}
       </section>
 
         <footer>

@@ -1,17 +1,20 @@
 // This module is responsible for generating the HTML representation for the post entry form.
 
-//export a function that creates the HTML elements for the post form
-export const PostEntryForm = ()=>{
+import { savedPost } from "../Data/DataAccess.js"
+import { Post } from "./Post.js"
 
-let html = `
+//export a function that creates the HTML elements for the post form
+export const PostEntryForm = () => {
+
+    let html = `
 <section class="title">
-<input type="text" placeholder="Title" />
+<input type="text" name="title" placeholder="Title" />
 </section>
 <section class="URL">
 <input type="text" name="postURL" class="newPost_input" placeholder="URL of gif " />
 </section>
 <section class="story">
-<textarea id="description" class="newPost_description" placeholder="Story behind your gif..."></textarea>
+<textarea name="description" class="newPost_description" placeholder="Story behind your gif..."></textarea>
 </section>
 
 <section>
@@ -20,16 +23,36 @@ let html = `
 <button class="button" id="cancelPost">Cancel</button>
 </section>
 `
-return html
+    return html
 
 }
 
-
-
+const mainContainer = document.querySelector("#container")
 
 //create a click event listener that listens for the save button selection
-//get the value for the input fields in the post form
-//store the values in the posts array / permanent state
+mainContainer.addEventListener("click",
+    (clickEvent) => {
+        if (clickEvent.target.id === "savePost") {
+            //get the value for the input fields in the post form
+            const postTitle = document.querySelector("input[name='title']").value
+            const postURL = document.querySelector("input[name='postURL']").value
+            const postDescription = document.querySelector("textarea[name='description']").value
+            const postUserId= parseInt(localStorage.getItem("gg_user"))
+            const createDate = new Date(Date.now())
+            const dateString = createDate.toLocaleDateString("en-US")
+            //store the values in the posts array / permanent state
+            const savedObject= {
+                title:postTitle,
+                imageURL: postURL,
+                description: postDescription,
+                userId:postUserId,
+                timestamp:dateString
+            }
+
+        savedPost(savedObject)
+        }
+    })
+
 
 
 //create a click event listener that listens for the cancel button selection

@@ -43,7 +43,7 @@ for (const user of users) {
 //conditional that states if foundUser does not equal null, then the foundUser is stored in localStorage
 //if true, then dispatch the stateChanged custom event ".giffygram"
 if (foundUser !== null) {
-    localStorage.setItem("gg_user", foundUser.Id)
+    localStorage.setItem("gg_user", foundUser.id)
     document.querySelector("#container").dispatchEvent(new CustomEvent("stateChanged"))
 }
 }
