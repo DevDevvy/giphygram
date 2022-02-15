@@ -14,7 +14,7 @@ const applicationState = {
 }
 
 //HTTP GET Request with Fetch
-const API = "http://giffyapi.nss.team/"
+const API = "http://giffyapi.nss.team"
 
 export const fetchUsers = () => {
     return fetch(`${API}/users`)
