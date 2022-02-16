@@ -2,6 +2,7 @@ import { LoginFormHTML } from "./Auth/Login.js";
 import { fetchLikes, fetchPosts, fetchUsers } from "./Data/DataAccess.js";
 import { GiphyGram } from "./GiphyGram.js";
 
+
 //target the main container and rendering all HTML
 
 const mainContainer= document.querySelector("#container")
@@ -47,3 +48,5 @@ mainContainer.addEventListener("stateChanged", event => {
    console.log("State of data has changed. Regenerating HTML...")
    renderHTML()
 })
+
+
