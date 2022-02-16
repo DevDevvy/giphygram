@@ -138,3 +138,13 @@ export const setFavorite = (postId) => {
 
 //setter functions that fetch from API to applicationState for new message, current user, display favorites, new posts, and date posted
 //SET takes user choices and stores in the applicationState
+
+// delete favorited
+export const deleteRequest = (id) => {
+    return fetch(`${API}/likes/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
