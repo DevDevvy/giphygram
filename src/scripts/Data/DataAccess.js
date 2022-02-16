@@ -13,6 +13,8 @@ const applicationState = {
     }
 }
 
+const mainContainer= document.querySelector("#container")
+
 //HTTP GET Request with Fetch
 const API = "http://localhost:8088"
 
@@ -26,8 +28,6 @@ export const fetchUsers = () => {
         )
 }
 
-
-const mainContainer= document.querySelector("#container")
 //GETS data from API
 //returns a copy of the state
 export const getUsers = () => {
@@ -101,6 +101,24 @@ export const savedPost = (newPostObj) => {
         body: JSON.stringify(newPostObj)
     }
     return fetch(`${API}/posts`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+
+
+
+
+export const setFavorite = (postId) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(postId)
+    }
+    return fetch(`${API}/likes`, fetchOptions)
         .then(response => response.json())
         .then(() => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))

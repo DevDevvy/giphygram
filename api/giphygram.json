@@ -47,14 +47,6 @@
       "timestamp": 1508080619498
     },
     {
-      "id": 2,
-      "userId": 2,
-      "title": "Dinner",
-      "imageURL": "https://media.giphy.com/media/4RslNp4SUqAoM/giphy.gif",
-      "description": "Messenger bag hella gochujang adaptogen, aesthetic sartorial before they sold out franzen sustainable thundercats.",
-      "timestamp": 1497580619498
-    },
-    {
       "id": 3,
       "userId": 2,
       "title": "Graduation!",
@@ -177,7 +169,7 @@
     },
     {
       "userId": 3,
-      "postId": 4,
+      "postId": 1,
       "id": 4
     }
   ],
