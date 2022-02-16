@@ -12,20 +12,22 @@ export const Post = () => {
         // if they match show colored star
         // else blank star
         const likes = getLikes()
+        let liked = ``
         const foundLike = likes.find((like) => {
             if (like.postId === post.id) {
-                return `<img class="favorite-button-yellow" id="favorite--${post.id}" src="favorite-star-yellow.svg" alt="yellowStar"/>`
+                liked = `<img class="favorite-button-yellow" id="favorite--${post.id}" src="../images/favorite-star-yellow.svg" alt="yellowStar"/>`
             } else {
-                return `<img class="favorite-button-hollow" id="favorite--${post.id}" src="favorite-star-blank.svg" alt="hollowStar" />`
+                liked = `<img class="favorite-button-hollow" id="favorite--${post.id}" src="../images/favorite-star-blank.svg" alt="hollowStar" />`
             }
+            return liked
         })
+
         const foundUser= userState.find(
             (user)=>{
                 return foundUserId===user.id
-
             }
         )
-            const foundName= foundUser 
+        const foundName= foundUser 
 
         return `<h2>${post.title}</h2>
         <img id="post--${post.id} class="postImage" src="${post.imageURL}">
@@ -36,7 +38,7 @@ export const Post = () => {
         Posted By: ${foundName.name} on ${post.timestamp}
         </div>
         <div id="favoriteButton">
-        ${foundLike}
+        ${liked}
         </div>
         `
     }).join("")

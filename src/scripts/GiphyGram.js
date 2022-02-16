@@ -19,7 +19,7 @@ export const GiphyGram = () => {
       </section>
      
       <section class="postFeed">
-      Post should be here  ${Post()}
+      ${Post()}
       </section>
 
         <footer>
