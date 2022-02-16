@@ -8,19 +8,22 @@ export const Post = () => {
     let html = "<section class='post'>"
     const PostArray= posts.map(post => {
         const foundUserId = parseInt(localStorage.getItem("gg_user"))
+
         // find likes.postid === posts.id
         // if they match show colored star
         // else blank star
         const likes = getLikes()
         let liked = ``
-        const foundLike = likes.find((like) => {
-            if (like.postId === post.id) {
-                liked = `<img class="favorite-button-yellow" id="favorite--${post.id}" src="../images/favorite-star-yellow.svg" alt="yellowStar"/>`
-            } else {
-                liked = `<img class="favorite-button-hollow" id="favorite--${post.id}" src="../images/favorite-star-blank.svg" alt="hollowStar" />`
-            }
-            return liked
-        })
+        //find method = object or undefined
+        //callback = true or false
+        const foundLike = likes.find((like) => like.postId === post.id && like.userId === foundUserId )
+
+        if (foundLike) {
+            liked = `<img class="favorite-button-yellow" id="favorite--${post.id}" src="../images/favorite-star-yellow.svg" alt="yellowStar"/>`
+        } else {
+            liked = `<img class="favorite-button-hollow" id="favorite--${post.id}" src="../images/favorite-star-blank.svg" alt="hollowStar" />`
+        }
+    
 
         const foundUser= userState.find(
             (user)=>{
