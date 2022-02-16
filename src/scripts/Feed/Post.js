@@ -1,4 +1,4 @@
-import { getPosts, getUsers } from "../Data/DataAccess.js"
+import { getLikes, getPosts, getUsers, setFavorite } from "../Data/DataAccess.js"
 
 
 //We'll generate unordered list HTML representation of the users choices in the post entry form
@@ -8,6 +8,17 @@ export const Post = () => {
     let html = "<section class='post'>"
     const PostArray= posts.map(post => {
         const foundUserId = parseInt(localStorage.getItem("gg_user"))
+        // find likes.postid === posts.id
+        // if they match show colored star
+        // else blank star
+        const likes = getLikes()
+        const foundLike = likes.find((like) => {
+            if (like.postId === post.id) {
+                foundLike = `<img class="favorite-button-yellow" id="favorite--${post.id}" src="favorite-star-yellow.svg" alt="yellowStar"/>`
+            } else {
+                foundLike = `<img class="favorite-button-hollow" id="favorite--${post.id}" src="favorite-star-blank.svg" alt="hollowStar" />`
+            }
+        })
         const foundUser= userState.find(
             (user)=>{
                 return foundUserId===user.id
@@ -17,12 +28,15 @@ export const Post = () => {
             const foundName= foundUser 
 
         return `<h2>${post.title}</h2>
-        <img class="postImage" src="${post.imageURL}">
+        <img id="post--${post.id} class="postImage" src="${post.imageURL}">
         <div class="description">
         ${post.description}
         </div>
         <div class="post_tagline">
         Posted By: ${foundName.name} on ${post.timestamp}
+        </div>
+        <div id="favoriteButton">
+        ${foundLike}
         </div>
         `
     }).join("")
@@ -31,6 +45,26 @@ html+= "</section>"
     return html
 
 }
+
+const favoriteContainer = document.getElementById("favorite")
+
+// add listener
+document.addEventListener("click", (click) => {
+    // find starts with
+    if (click.target.id.startsWith("favorite--")) {
+        // split id to get value
+        const [ , postId] = click.target.id.split("--")
+        const postUserId= parseInt(localStorage.getItem("gg_user"))
+        const likeObj = {
+            userId: postUserId,
+            postId: parseInt(postId)
+        }
+        // set favorite that was chosen
+        setFavorite(likeObj)
+        // get likes and posts state
+        
+    }
+})
 
 
 

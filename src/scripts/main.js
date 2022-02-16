@@ -1,5 +1,5 @@
 import { LoginFormHTML } from "./Auth/Login.js";
-import { fetchPosts, fetchUsers } from "./Data/DataAccess.js";
+import { fetchLikes, fetchPosts, fetchUsers } from "./Data/DataAccess.js";
 import { GiphyGram } from "./GiphyGram.js";
 
 //target the main container and rendering all HTML
@@ -22,7 +22,9 @@ const renderHTML= ()=>{
    fetchUsers()
    .then(()=>{
       return fetchPosts()
-      
+      .then(()=>{
+         return fetchLikes()
+      })
    })
    .then(()=>{
       mainContainer.innerHTML= GiphyGram()
