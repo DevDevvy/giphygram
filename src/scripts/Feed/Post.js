@@ -14,9 +14,9 @@ export const Post = () => {
         const likes = getLikes()
         const foundLike = likes.find((like) => {
             if (like.postId === post.id) {
-                foundLike = `<img class="favorite-button-yellow" id="favorite--${post.id}" src="favorite-star-yellow.svg" alt="yellowStar"/>`
+                return `<img class="favorite-button-yellow" id="favorite--${post.id}" src="favorite-star-yellow.svg" alt="yellowStar"/>`
             } else {
-                foundLike = `<img class="favorite-button-hollow" id="favorite--${post.id}" src="favorite-star-blank.svg" alt="hollowStar" />`
+                return `<img class="favorite-button-hollow" id="favorite--${post.id}" src="favorite-star-blank.svg" alt="hollowStar" />`
             }
         })
         const foundUser= userState.find(
