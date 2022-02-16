@@ -14,7 +14,7 @@ const applicationState = {
 }
 
 //HTTP GET Request with Fetch
-const API = "http://localhost:8090"
+const API = "http://localhost:8088"
 
 export const fetchUsers = () => {
     return fetch(`${API}/users`)

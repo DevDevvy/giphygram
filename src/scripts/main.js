@@ -21,7 +21,7 @@ const renderLogin = () => {
 const renderHTML= ()=>{
    fetchUsers()
    .then(()=>{
-      fetchPosts()
+      return fetchPosts()
       
    })
    .then(()=>{
