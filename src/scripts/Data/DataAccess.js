@@ -14,7 +14,7 @@ const applicationState = {
 }
 
 //HTTP GET Request with Fetch
-const API = "http://giffyapi.nss.team"
+const API = "http://localhost:8088"
 
 export const fetchUsers = () => {
     return fetch(`${API}/users`)
@@ -26,10 +26,12 @@ export const fetchUsers = () => {
         )
 }
 
+
+const mainContainer= document.querySelector("#container")
 //GETS data from API
 //returns a copy of the state
 export const getUsers = () => {
-    return applicationState.users.map(user => ({...user}))
+    return applicationState.users.map(user => ({ ...user }))
 }
 
 export const fetchPosts = () => {
@@ -43,7 +45,7 @@ export const fetchPosts = () => {
 }
 
 export const getPosts = () => {
-    return applicationState.posts.map(post => ({...post}))
+    return applicationState.posts.map(post => ({ ...post }))
 }
 
 export const fetchLikes = () => {
@@ -56,8 +58,9 @@ export const fetchLikes = () => {
         )
 }
 
+
 export const getLikes = () => {
-    return applicationState.likes.map(like => ({...like}))
+    return applicationState.likes.map(like => ({ ...like }))
 }
 
 export const fetchMessages = () => {
@@ -71,7 +74,7 @@ export const fetchMessages = () => {
 }
 
 export const getMessages = () => {
-    return applicationState.messages.map(message => ({...message}))
+    return applicationState.messages.map(message => ({ ...message }))
 }
 
 export const fetchFollows = () => {
@@ -85,9 +88,24 @@ export const fetchFollows = () => {
 }
 
 export const getFollows = () => {
-    return applicationState.follows.map(follow => ({...follow}))
+    return applicationState.follows.map(follow => ({ ...follow }))
 }
 
+
+export const savedPost = (newPostObj) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newPostObj)
+    }
+    return fetch(`${API}/posts`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
 
 //create a click event listener that listens for the logout button and clears localStorage
 
