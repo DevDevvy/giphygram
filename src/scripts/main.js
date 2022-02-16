@@ -23,8 +23,8 @@ const renderHTML= ()=>{
    fetchUsers()
    .then(()=>{
       return fetchPosts()
-      .then(()=>{
-         return fetchLikes()
+   .then(()=>{
+      return fetchLikes()
       })
    })
    .then(()=>{

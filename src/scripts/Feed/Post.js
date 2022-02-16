@@ -73,7 +73,7 @@ document.addEventListener("click", (click) => {
         
         const foundLike = likes.find((like) => like.postId === post.id && like.userId === foundUserId )
         if (foundLike) {
-            deleteRequest(parseInt(foundLike.id))
+            deleteRequest(parseInt(foundLike))
         } else {
             setFavorite(likeObj)
         }
