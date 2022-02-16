@@ -1,7 +1,5 @@
 import { getLikes, getPosts, getUsers, setFavorite } from "../Data/DataAccess.js"
-import { foundLikesArray } from "../Feed/Likes.js"
 
-foundLikesArray()
 
 //We'll generate unordered list HTML representation of the users choices in the post entry form
 export const Post = () => {
