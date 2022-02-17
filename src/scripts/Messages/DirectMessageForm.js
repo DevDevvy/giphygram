@@ -1,6 +1,6 @@
 //This module is responsible for generating the HTML representation for the message form.
 
-import { getUsers } from "../Data/DataAccess.js"
+import { getUsers, sendMessage } from "../Data/DataAccess.js"
 
 //export a function that creates the HTML elements for the message form
 //create dropdown for recipient - get users
@@ -27,7 +27,7 @@ ${recipient.map(recipient => {
 </section>
 
 <section class="messageInput">
-<textarea class="messageBody" type="text" placeholder="Message to User"> </textarea>
+<textarea name="textAreaMessage" class="messageBody" type="text" placeholder="Message to User"> </textarea>
 </section>
 <section>
 <button class="saveButton" id="saveMessage">Save</button>
@@ -42,3 +42,27 @@ ${recipient.map(recipient => {
 
 
 }
+const mainContainer = document.querySelector("#container")
+mainContainer.addEventListener("click",
+    (clickEvent) => {
+        const userState = getUsers()
+        const foundUserId = parseInt(localStorage.getItem("gg_user"))
+        const foundUser= userState.find(
+            (user)=>{
+                return foundUserId===user.id
+            }
+        )
+        const foundName= foundUser 
+        if (clickEvent.target.id === "saveMessage") {
+            //get the value for the input fields in the post form
+            const textAreaMessage = document.querySelector("textarea[name='textAreaMessage']").value
+            const sender = foundName.name
+            const savedObject= {
+                from: sender,
+                message: textAreaMessage
+            }
+        
+            sendMessage(savedObject)
+        }
+    })
+
