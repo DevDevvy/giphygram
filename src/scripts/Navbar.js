@@ -53,3 +53,4 @@ if (click.target.id === "penMessage") {
 //links to message inbox when clicked - click event
 
 //logout includes a click event that clears local storage and returns to login
+
