@@ -1,4 +1,4 @@
-import { deleteRequest, getLikes, getPosts, getUsers, setFavorite } from "../Data/DataAccess.js"
+import { deleteFavorite, getLikes, getPosts, getUsers, setFavorite } from "../Data/DataAccess.js"
 
 
 //We'll generate unordered list HTML representation of the users choices in the post entry form
@@ -72,9 +72,9 @@ document.addEventListener("click", (click) => {
         const postArray = posts.find((post) => {
             post.userId === foundUserId 
             foundLike = likes.find((like) => parseInt(like.postId) === post.id && parseInt(like.userId) === foundUserId )
-            setFavorite(likeObj)
-        
-    })
+            
+        })
+        setFavorite(likeObj)
 
         // get likes and posts state
         
@@ -92,12 +92,8 @@ document.addEventListener("click", (click) => {
         const [ , postId] = click.target.id.split("--")
         const postUserId= parseInt(localStorage.getItem("gg_user"))
         // find favorite that was chosen
-        const postArray = posts.find((post) => {
-            post.userId === foundUserId 
-            
-            foundLike = likes.find((like) => parseInt(like.postId) === post.id && parseInt(like.userId) === foundUserId )
-                deleteRequest(parseInt(foundLike.id))
-    })
+        foundLike = likes.find((like) => like.postId === parseInt(postId) && parseInt(like.userId) === foundUserId )
+        deleteFavorite(parseInt(foundLike.id))
         // get likes and posts state
         
     }

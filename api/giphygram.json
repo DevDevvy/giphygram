@@ -154,8 +154,13 @@
   "likes": [
     {
       "userId": 3,
-      "postId": 1,
+      "postId": 3,
       "id": 2
+    },
+    {
+      "userId": 3,
+      "postId": 4,
+      "id": 3
     }
   ],
   "messages": [
