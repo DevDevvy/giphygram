@@ -1,46 +1,51 @@
 import { LoginFormHTML } from "./Auth/Login.js";
-import { fetchLikes, fetchPosts, fetchUsers } from "./Data/DataAccess.js";
+import { fetchLikes, fetchMessages, fetchPosts, fetchUsers } from "./Data/DataAccess.js";
 import { GiphyGram } from "./GiphyGram.js";
 
 
 //target the main container and rendering all HTML
 
-const mainContainer= document.querySelector("#container")
+const mainContainer = document.querySelector("#container")
 
 
 
 const renderLogin = () => {
    fetchUsers()
-   .then(
-      () => {
-         
-         mainContainer.innerHTML= LoginFormHTML()
-      })
+      .then(
+         () => {
+
+            mainContainer.innerHTML = LoginFormHTML()
+         })
 }
 
 //chain all fetches to display data with HTML
 
-const renderHTML= ()=>{
+const renderHTML = () => {
    fetchUsers()
-   .then(()=>{
-      return fetchPosts()
-   .then(()=>{
-      return fetchLikes()
+      .then(() => {
+         return fetchPosts()
+            .then(() => {
+               return fetchLikes()
+                  .then(() => {
+                     return fetchMessages()
+                  })
+            })
       })
-   })
-   .then(()=>{
-      mainContainer.innerHTML= GiphyGram()
-      
-   })
-   
+      .then(() => {
+         mainContainer.innerHTML = GiphyGram()
+
+      })
+
 }
 renderHTML()
+
+
 
 if (localStorage.getItem("gg_user")) {
    renderHTML()
 } else {
    renderLogin()
-   
+
 }
 
 
