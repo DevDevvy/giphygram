@@ -19,7 +19,7 @@ Recipient:
 <select name="directMessage" class="message_input">
 
 ${recipient.map(recipient => {
-            return `<option class="recipients" value="${recipient.id}">${recipient.name} </option>
+            return `<option name="recipient" class="recipients" value="${recipient.id}">${recipient.name} </option>
     `
         }).join("")
         }
@@ -47,22 +47,27 @@ mainContainer.addEventListener("click",
     (clickEvent) => {
         const userState = getUsers()
         const foundUserId = parseInt(localStorage.getItem("gg_user"))
-        const foundUser= userState.find(
-            (user)=>{
-                return foundUserId===user.id
+        const foundUser = userState.find(
+            (user) => {
+                return foundUserId === user.id
             }
         )
-        const foundName= foundUser 
+        const foundName = foundUser
         if (clickEvent.target.id === "saveMessage") {
             //get the value for the input fields in the post form
             const textAreaMessage = document.querySelector("textarea[name='textAreaMessage']").value
-            const sender = foundName.name
-            const savedObject= {
-                from: sender,
-                message: textAreaMessage
+            const sender = foundName.id
+            const recipient = parseInt(document.querySelector("option[name='recipient']").value)
+            const savedObject = {
+                userId: sender,
+                text: textAreaMessage,
+                recipientId: recipient,
+                read: false
             }
-        
             sendMessage(savedObject)
+            window.alert("Message Sent!")
         }
-    })
+
+    }
+)
 
