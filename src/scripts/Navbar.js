@@ -1,6 +1,6 @@
 //Dispays logo, title, pen icon, message count icon, and logout
 
-import { setNewMessage } from "./Data/DataAccess.js"
+import { setNewMessage, getNewMessage } from "./Data/DataAccess.js"
 
 export const NavBarHTML = () => {
     return `
@@ -34,9 +34,14 @@ export const NavBarHTML = () => {
 document.addEventListener("click", (click) => {
     //target the pen icon in nav bar to display message form
 if (click.target.id === "penMessage") {
+    const newMessage = getNewMessage()
     //if pen icon is clicked, then display the message form
     //invoke function that displays message form HTML
-    setNewMessage(true)
+    if (newMessage === false){
+        setNewMessage(true)
+    } else {
+        setNewMessage(false)
+    }
 }
 })
 //getNewMessage is invoked in GiphyGram.js to check if true, then invoke the message form function
