@@ -9,7 +9,10 @@ const applicationState = {
     feed: {
         chosenUser: null,
         displayFavorites: ![],
-        displayMessages: ![]
+        displayMessages: ![],
+        newPost: false,
+        datePosted: null,
+        newMessage: false
     }
 }
 
@@ -73,9 +76,22 @@ export const fetchMessages = () => {
         )
 }
 
+//gets messages array from application state
 export const getMessages = () => {
     return applicationState.messages.map(message => ({ ...message }))
 }
+
+//gets newMessage from feed object in application state
+export const getNewMessage = () => {
+    return applicationState.feed.newMessage
+}
+
+//setter function for newMessage for clickEvent that displays message form
+export const setNewMessage = (message) => {
+    applicationState.feed.newMessage = message
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
 
 export const fetchFollows = () => {
     return fetch(`${API}/follows`)
@@ -124,6 +140,7 @@ export const setFavorite = (postId) => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         })
 }
+
 
 //create a click event listener that listens for the logout button and clears localStorage
 
