@@ -19,7 +19,7 @@ export const Post = () => {
         const foundLike = likes.find((like) => like.postId === post.id && like.userId === foundUserId )
 
         if (foundLike) {
-            liked = `<img class="favorite-button-yellow" id="favorite--${post.id}" src="../images/favorite-star-yellow.svg" alt="yellowStar"/>`
+            liked = `<img class="favorite-button-yellow" id="unfavorite--${post.id}" src="../images/favorite-star-yellow.svg" alt="yellowStar"/>`
         } else {
             liked = `<img class="favorite-button-hollow" id="favorite--${post.id}" src="../images/favorite-star-blank.svg" alt="hollowStar" />`
         }
@@ -58,6 +58,7 @@ document.addEventListener("click", (click) => {
     const likes = getLikes()
     const posts = getPosts()
     const foundUserId = parseInt(localStorage.getItem("gg_user"))
+    let foundLike = null
     // find starts with
     if (click.target.id.startsWith("favorite--")) {
         // split id to get value
@@ -68,17 +69,35 @@ document.addEventListener("click", (click) => {
             postId: parseInt(postId)
         }
         // set favorite that was chosen
-        const postArray = posts.map((post) => {
+        const postArray = posts.find((post) => {
             post.userId === foundUserId 
-        
-        const foundLike = likes.find((like) => like.postId === post.id && like.userId === foundUserId )
-        if (foundLike) {
-            deleteRequest(parseInt(foundLike))
-        } else {
+            foundLike = likes.find((like) => parseInt(like.postId) === post.id && parseInt(like.userId) === foundUserId )
             setFavorite(likeObj)
-        }
-        })
+        
+    })
 
+        // get likes and posts state
+        
+    }
+})
+// add listener to remove favorite 
+document.addEventListener("click", (click) => {
+    const likes = getLikes()
+    const posts = getPosts()
+    const foundUserId = parseInt(localStorage.getItem("gg_user"))
+    let foundLike = null
+    // find starts with
+    if (click.target.id.startsWith("unfavorite--")) {
+        // split id to get value
+        const [ , postId] = click.target.id.split("--")
+        const postUserId= parseInt(localStorage.getItem("gg_user"))
+        // find favorite that was chosen
+        const postArray = posts.find((post) => {
+            post.userId === foundUserId 
+            
+            foundLike = likes.find((like) => parseInt(like.postId) === post.id && parseInt(like.userId) === foundUserId )
+                deleteRequest(parseInt(foundLike.id))
+    })
         // get likes and posts state
         
     }
