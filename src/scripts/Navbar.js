@@ -9,3 +9,25 @@
 //links to message inbox when clicked - click event
 
 //logout includes a click event that clears local storage and returns to login
+
+export const NavBarHTML = () => {
+    return `
+        <nav class="navigation">
+            <div class="nav_icon">
+                <img src="./images/pb.png" alt="giphygram_logo" id="logo" />
+            </div>
+            <div class="company_name">
+                <h1 id="company_name">Giphygram</h1>
+            </div>
+            <div class="pen_and_count">
+                <img src="./images/fountain-pen-1.svg" alt="pen_icon" />
+                <div class="message_count" id="message_count">
+                    ?
+                </div>
+            </div>
+            <div class="logout">
+                <button id="logout_button">Logout</button>
+            </div>
+        </nav>
+    `
+}
