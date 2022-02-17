@@ -140,7 +140,7 @@ export const setFavorite = (postId) => {
 //SET takes user choices and stores in the applicationState
 
 // delete favorited
-export const deleteRequest = (id) => {
+export const deleteFavorite = (id) => {
     return fetch(`${API}/likes/${id}`, { method: "DELETE" })
         .then(
             () => {
