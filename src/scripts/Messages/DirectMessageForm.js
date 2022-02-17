@@ -3,6 +3,10 @@
 import { getUsers } from "../Data/DataAccess.js"
 
 //export a function that creates the HTML elements for the message form
+//create dropdown for recipient - get users
+//don't include current logged in user(optional)
+//create input for message body
+//add submit, cancel, and close button(optional)
 export const MessageEntryForm = () => {
     const recipient = getUsers()
     let html = ""
@@ -38,9 +42,3 @@ ${recipient.map(recipient => {
 
 
 }
-//create dropdown for recipient - get users
-//don't include current logged in user
-
-//create input for message body
-
-//add submit, cancel, and close button

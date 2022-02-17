@@ -1,4 +1,5 @@
 //storing the values input into the message form 
+
 //goes to database when send button clicked
 
 //if current user is equal to recipient id then we display the count on the recipient users notification/nav bar

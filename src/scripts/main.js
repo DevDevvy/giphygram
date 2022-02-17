@@ -19,6 +19,7 @@ const renderLogin = () => {
 }
 
 //chain all fetches to display data with HTML
+
 const renderHTML= ()=>{
    fetchUsers()
    .then(()=>{
@@ -41,6 +42,8 @@ if (localStorage.getItem("gg_user")) {
    renderLogin()
    
 }
+
+
 
 
 //custom event for stateChanged to get permanent state
