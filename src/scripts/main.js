@@ -10,7 +10,7 @@ import { messageInbox } from "./Messages/DirectMessageList.js";
 const mainContainer = document.querySelector("#container")
 
 //chain all fetches to display data with HTML
-const renderLogin = () => {
+export const renderLogin = () => {
    fetchUsers()
       .then(
          () => {
