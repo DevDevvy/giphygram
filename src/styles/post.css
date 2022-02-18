@@ -1,13 +1,23 @@
+#favoriteButton {
+    display: inline-block;
+}
+
 .favorite-button-hollow {
     height: 40px;
+    display: inline-block;
 }
 
 .favorite-button-yellow {
     height: 40px;
+    display: inline-block;
 }
 
 .trash-button {
     height: 40px;
+}
+/* trash button container */
+#trashButton {
+    display: inline-block;
 }
 /* "Have a gif to post?" button */
 #post-button {
@@ -28,7 +38,16 @@
 
 /* container with all posts */
 .postFeed {
-    
+    display: flex;
+    justify-content: center;
     padding: 1em;
     margin: .5em;
+}
+
+.post {
+    padding: 1em;
+}
+
+#trashButton {
+
 }
