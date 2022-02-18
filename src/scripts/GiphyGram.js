@@ -10,8 +10,7 @@ export const GiphyGram = () => {
   return `
         
         <section>
-      <h1>GiphyGram</h1>
-      Navbar
+      
       ${NavBarHTML()}</header>
       </section>
     
