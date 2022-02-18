@@ -1,4 +1,4 @@
-import { deleteFavorite, getLikes, getNewPost, getPosts, getUsers, setFavorite, setNewPost } from "../Data/DataAccess.js"
+import { deleteFavorite, deletePost, getLikes, getNewPost, getPosts, getUsers, setFavorite, setNewPost } from "../Data/DataAccess.js"
 
 export const NewPostButton = ()=> {
     return `<div id='post-button' class='post-button'> Have a gif to post? </div>`
@@ -37,6 +37,11 @@ export const Post = () => {
 
         const foundPoster = userState.find(user => user.id === post.userId).name
 
+        let trashed = `` 
+        if (foundUser.id === post.userId) {
+            trashed = `<img class="trash-button" id="trash--${post.id}" src="../images/trash-can.svg" alt="trashIcon"/>`
+        }
+
         return `<h2>${post.title}</h2>
         <img id="post--${post.id} class="postImage" src="${post.imageURL}">
         <div class="description">
@@ -47,6 +52,9 @@ export const Post = () => {
         </div>
         <div id="favoriteButton">
         ${liked}
+        </div>
+        <div id="trashButton">
+        ${trashed}
         </div>
         `
     }).join("")
@@ -106,6 +114,22 @@ document.addEventListener("click", (click) => {
         
     }
 })
+//delete post event listener
+document.addEventListener("click", (click) => {
+    const posts = getPosts()
+    const foundUserId = parseInt(localStorage.getItem("gg_user"))
+    // find starts with
+    if (click.target.id.startsWith("trash--")) {
+        // split id to get value
+        const [ , postId] = click.target.id.split("--")
+        const postUserId= parseInt(localStorage.getItem("gg_user"))
+        // find favorite that was chosen
+        deletePost(parseInt(postId))
+        // get likes and posts state
+        
+    }
+})
+
 // add listener to reveal post form
 document.addEventListener("click", (click) => {
     //target the pen icon in nav bar to display message form
