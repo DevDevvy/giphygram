@@ -1,6 +1,7 @@
 //Dispays logo, title, pen icon, message count icon, and logout
 
 import { setNewMessage, getNewMessage } from "./Data/DataAccess.js"
+import { renderLogin } from "./main.js"
 
 export const NavBarHTML = () => {
     return `
@@ -67,4 +68,9 @@ if (click.target.id === "message_count") {
 
 
 //logout includes a click event that clears local storage and returns to login
-
+document.addEventListener("click", (clickEvent) => {
+    if (clickEvent.target.id === "logout_button") {
+        localStorage.clear 
+        renderLogin()
+    }
+})
