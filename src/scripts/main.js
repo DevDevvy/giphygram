@@ -1,22 +1,13 @@
 import { LoginFormHTML } from "./Auth/Login.js";
 import { fetchLikes, fetchMessages, fetchPosts, fetchUsers } from "./Data/DataAccess.js";
 import { GiphyGram } from "./GiphyGram.js";
+import { NavBarHTML } from "./Navbar.js";
+import { messageInbox } from "./Messages/DirectMessageList.js";
 
 
 //target the main container and rendering all HTML
 
 const mainContainer = document.querySelector("#container")
-
-
-
-const renderLogin = () => {
-   fetchUsers()
-      .then(
-         () => {
-
-            mainContainer.innerHTML = LoginFormHTML()
-         })
-}
 
 //chain all fetches to display data with HTML
 
@@ -39,7 +30,14 @@ const renderHTML = () => {
 }
 renderHTML()
 
+const renderLogin = () => {
+   fetchUsers()
+      .then(
+         () => {
 
+            mainContainer.innerHTML = LoginFormHTML()
+         })
+}
 
 if (localStorage.getItem("gg_user")) {
    renderHTML()
@@ -49,6 +47,28 @@ if (localStorage.getItem("gg_user")) {
 }
 
 
+
+
+const renderMessage = () => {
+   fetchUsers()
+      .then(() => {
+         return fetchMessages()
+            .then(
+               () => {
+
+                  mainContainer.innerHTML =    NavBarHTML() + messageInbox()
+               })
+      })
+}
+
+
+
+
+mainContainer.addEventListener("messageStateChanged", event => {
+   console.log("State of data has changed. Regenerating HTML...")
+
+   renderMessage()
+})
 
 
 //custom event for stateChanged to get permanent state
