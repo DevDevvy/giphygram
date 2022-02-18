@@ -10,6 +10,14 @@ import { messageInbox } from "./Messages/DirectMessageList.js";
 const mainContainer = document.querySelector("#container")
 
 //chain all fetches to display data with HTML
+const renderLogin = () => {
+   fetchUsers()
+      .then(
+         () => {
+
+            mainContainer.innerHTML = LoginFormHTML()
+         })
+}
 
 const renderHTML = () => {
    fetchUsers()
@@ -28,16 +36,9 @@ const renderHTML = () => {
       })
 
 }
-renderHTML()
 
-const renderLogin = () => {
-   fetchUsers()
-      .then(
-         () => {
 
-            mainContainer.innerHTML = LoginFormHTML()
-         })
-}
+
 
 if (localStorage.getItem("gg_user")) {
    renderHTML()
