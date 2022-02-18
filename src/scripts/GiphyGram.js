@@ -3,6 +3,7 @@ import { NewPostButton, Post } from "./Feed/Post.js"
 import { NavBarHTML } from "./Navbar.js"
 import { MessageEntryForm } from "./Messages/DirectMessageForm.js"
 import { getNewMessage, getNewPost } from "./Data/DataAccess.js"
+import { Footer } from "./Footer.js"
 //create overall HTML structure and invoke each sections function that generates HTML
 
 
@@ -31,7 +32,7 @@ export const GiphyGram = () => {
 
       </div>
         <footer>
-
+  ${Footer()}
         </footer>
 
       
