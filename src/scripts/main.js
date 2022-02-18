@@ -67,7 +67,6 @@ const renderMessage = () => {
 
 mainContainer.addEventListener("messageStateChanged", event => {
    console.log("State of data has changed. Regenerating HTML...")
-
    renderMessage()
 })
 

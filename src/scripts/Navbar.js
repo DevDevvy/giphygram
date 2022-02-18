@@ -74,3 +74,8 @@ document.addEventListener("click", (clickEvent) => {
         renderLogin()
     }
 })
+document.addEventListener("click", (clickEvent) => {
+    if (clickEvent.target.id === "logo") {
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+    }
+})
