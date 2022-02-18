@@ -9,14 +9,14 @@ const applicationState = {
     feed: {
         chosenUser: null,
         displayFavorites: ![],
-        displayMessages: ![],
+        displayMessages: [],
         newPost: false,
         datePosted: null,
         newMessage: false
     }
 }
 
-const mainContainer= document.querySelector("#container")
+const mainContainer = document.querySelector("#container")
 
 //HTTP GET Request with Fetch
 const API = "http://localhost:8088"
@@ -78,7 +78,33 @@ export const fetchMessages = () => {
 
 //gets messages array from application state
 export const getMessages = () => {
+
     return applicationState.messages.map(message => ({ ...message }))
+}
+
+//get unread messages in messages array and matching recipient
+export const getUsersMessages = () => {
+    const userState = getUsers()
+    const foundUserId = parseInt(localStorage.getItem("gg_user"))
+    const foundUser = userState.find(
+        (user) => {
+            return foundUserId === user.id
+        }
+    )
+    //match the message.recipientId with the currentUser (gg_user id)
+    const messages = getMessages()
+    //map through array of messages and list them
+    const messagesArray = messages.filter((message) => {
+        if (message.recipientId === foundUserId && message.read === false) {
+            return true
+        } 
+        return false
+    })
+    return messagesArray
+}
+export const getDisplayMessages = () => {
+
+    return applicationState.feed.displayMessages.map(displayMessage => ({ ...displayMessage }))
 }
 
 //gets newMessage from feed object in application state
