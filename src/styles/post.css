@@ -9,7 +9,7 @@
 .trash-button {
     height: 40px;
 }
-
+/* "Have a gif to post?" button */
 #post-button {
     padding: 1rem;
     margin: 0 25%;
@@ -20,13 +20,15 @@
     cursor: pointer;
     box-shadow: 2px 2px 9px 1px;
 }
-
+/* pop up form at top of app */
 .postForm {
     background-color: rgb(252, 241, 222);
     border: 1px solid black;
 }
 
+/* container with all posts */
 .postFeed {
+    
     padding: 1em;
     margin: .5em;
 }
