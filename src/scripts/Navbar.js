@@ -1,9 +1,12 @@
 //Dispays logo, title, pen icon, message count icon, and logout
 
-import { setNewMessage, getNewMessage } from "./Data/DataAccess.js"
+import { setNewMessage, getNewMessage, getUsersMessages } from "./Data/DataAccess.js"
 import { renderLogin } from "./main.js"
 
+
 export const NavBarHTML = () => {
+    const allMessages = getUsersMessages()
+    const messageLength = allMessages.length
     return `
         <nav class="navigation">
             <div class="nav_icon">
@@ -15,7 +18,7 @@ export const NavBarHTML = () => {
             <div class="pen_and_count">
                 <img id="penMessage" src="./images/fountain-pen-1.svg" alt="pen_icon" />
                 <div class="message_count" id="message_count">
-                    ?
+                    ${messageLength}
                 </div>
             </div>
             <div class="logout">

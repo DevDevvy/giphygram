@@ -216,21 +216,10 @@
     },
     {
       "userId": 4,
-      "recipientId": 6,
-      "text": "Hi, Emily, I love your new gif",
-      "id": 6
-    },
-    {
-      "userId": 4,
       "recipientId": 1,
       "text": "Ray, that Santa looks just like you.",
       "read": false,
       "id": 7
-    },
-    {
-      "from": "Mark Ellis",
-      "message": " aergaergaerg",
-      "id": 8
     },
     {
       "userId": 1,
@@ -238,11 +227,6 @@
       "recipientId": 1,
       "read": false,
       "id": 9
-    },
-    {
-      "from": "Mark Ellis",
-      "message": " hi",
-      "id": 10
     }
   ],
   "follows": [
