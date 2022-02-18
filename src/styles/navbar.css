@@ -20,13 +20,14 @@
 .pen_and_count {
     display: flex;
     height: 2em;
-    justify-content: flex-end;
+    align-self: flex-start;
     flex-grow: 2;
 }
 
 .company_name {
     font-size: 25px;
     flex-grow: 1;
+    text-align: center;
 }
 .message_count {
     font-size: 2em;
