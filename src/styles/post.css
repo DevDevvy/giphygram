@@ -9,3 +9,24 @@
 .trash-button {
     height: 40px;
 }
+
+#post-button {
+    padding: 1rem;
+    margin: 0 25%;
+    border: 1px solid slategrey;
+    background-color: rgb(245, 236, 224);
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 9px 1px;
+}
+
+.postForm {
+    background-color: rgb(252, 241, 222);
+    border: 1px solid black;
+}
+
+.postFeed {
+    padding: 1em;
+    margin: .5em;
+}

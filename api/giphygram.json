@@ -39,14 +39,6 @@
   ],
   "posts": [
     {
-      "id": 1,
-      "userId": 1,
-      "title": "My first post",
-      "imageURL": "https://media.giphy.com/media/3oz8xyUoD2HlTIcdTW/giphy.gif",
-      "description": "Jianbing butcher post-ironic brunch marfa, listicle quinoa kickstarter vinyl poke cornhole snackwave yr flexitarian.",
-      "timestamp": 1508080619498
-    },
-    {
       "id": 3,
       "userId": 2,
       "title": "Graduation!",
@@ -171,11 +163,6 @@
       "userId": 1,
       "postId": 3,
       "id": 5
-    },
-    {
-      "userId": 1,
-      "postId": 1,
-      "id": 6
     }
   ],
   "messages": [
