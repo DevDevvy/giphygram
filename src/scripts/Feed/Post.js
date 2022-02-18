@@ -1,5 +1,8 @@
-import { deleteFavorite, getLikes, getPosts, getUsers, setFavorite } from "../Data/DataAccess.js"
+import { deleteFavorite, getLikes, getNewPost, getPosts, getUsers, setFavorite, setNewPost } from "../Data/DataAccess.js"
 
+export const NewPostButton = ()=> {
+    return `<div id='post-button' class='post-button'> Have a gif to post? </div>`
+}
 
 //We'll generate unordered list HTML representation of the users choices in the post entry form
 export const Post = () => {
@@ -32,13 +35,15 @@ export const Post = () => {
         )
         const foundName= foundUser 
 
+        const foundPoster = userState.find(user => user.id === post.userId).name
+
         return `<h2>${post.title}</h2>
         <img id="post--${post.id} class="postImage" src="${post.imageURL}">
         <div class="description">
         ${post.description}
         </div>
         <div class="post_tagline">
-        Posted By: ${foundName.name} on ${post.timestamp}
+        Posted By: ${foundPoster} on ${post.timestamp}
         </div>
         <div id="favoriteButton">
         ${liked}
@@ -50,6 +55,9 @@ html+= "</section>"
     return html
 
 }
+
+
+
 
 const favoriteContainer = document.getElementById("favorite")
 
@@ -97,6 +105,18 @@ document.addEventListener("click", (click) => {
         // get likes and posts state
         
     }
+})
+// add listener to reveal post form
+document.addEventListener("click", (click) => {
+    //target the pen icon in nav bar to display message form
+if (click.target.id === "post-button") {
+    //if pen icon is clicked, then display the message form
+    //invoke function that displays message form HTML
+    const newPost = getNewPost()
+    if (newPost === false){
+        setNewPost(true)
+    } 
+}
 })
 
 

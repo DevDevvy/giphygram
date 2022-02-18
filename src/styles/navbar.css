@@ -1,32 +1,46 @@
 
-
+* {
+    margin: 2px;
+    
+}
 
 
 #logo {
-    width: 4em;
+    width: 2.5em;
+    flex-grow: 1;
+    padding: 3px;
 }
 
 .pen_icon {
-    height: 2em;
+    height: 1.5em;
+    padding: 3px;
 }
 
 .navigation {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: start;
+    background-color: rgb(210, 252, 210);
+    padding: 3px;
 }
 
 .pen_and_count {
     display: flex;
-    height: 3em;
-    
+    height: 2.5em;
+    flex-grow: 2;
+    flex-direction: row-reverse;
+    margin-right: 1em;
 }
 
 .company_name {
-    font-size: 25px;
-    padding: 0;
+    font-size: 1.5em;
+    flex-grow: 1;
+    text-align: justify;
+    font-size: 2em;
+    padding-left: 1em;
 }
 .message_count {
-    font-size: 2em;
-    align-self: flex-end;
+    font-size: 1.5em;
+    
 }

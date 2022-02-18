@@ -9,7 +9,7 @@ export const NavBarHTML = () => {
                 <img src="./images/pb.png" alt="giphygram_logo" id="logo" />
             </div>
             <div class="company_name">
-                <h1 id="company_name">Giphygram</h1>
+                <div id="company_name">Giphygram</div>
             </div>
             <div class="pen_and_count">
                 <img id="penMessage" src="./images/fountain-pen-1.svg" alt="pen_icon" />

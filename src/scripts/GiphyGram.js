@@ -1,8 +1,8 @@
 import { PostEntryForm } from "./Feed/PostEntryForm.js"
-import { Post } from "./Feed/Post.js"
+import { NewPostButton, Post } from "./Feed/Post.js"
 import { NavBarHTML } from "./Navbar.js"
 import { MessageEntryForm } from "./Messages/DirectMessageForm.js"
-import { getNewMessage } from "./Data/DataAccess.js"
+import { getNewMessage, getNewPost } from "./Data/DataAccess.js"
 //create overall HTML structure and invoke each sections function that generates HTML
 
 
@@ -10,8 +10,7 @@ export const GiphyGram = () => {
   return `
         
         <section>
-      <h1>GiphyGram</h1>
-      Navbar
+      
       ${NavBarHTML()}</header>
       </section>
     
@@ -22,10 +21,10 @@ export const GiphyGram = () => {
 </div>
 <div>
       <section class="postForm">
-        ${PostEntryForm()}
+        ${getNewPost() ? PostEntryForm() : NewPostButton()}
       </section>
       </div>
-     
+    
       <section class="postFeed">
       ${Post()}
       </section>

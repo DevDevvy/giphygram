@@ -118,6 +118,14 @@ export const setNewMessage = (message) => {
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
+// set and get newPost
+export const setNewPost = (post) => {
+    applicationState.feed.newPost = post
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+}
+export const getNewPost = () => {
+    return applicationState.feed.newPost
+}
 
 export const fetchFollows = () => {
     return fetch(`${API}/follows`)
