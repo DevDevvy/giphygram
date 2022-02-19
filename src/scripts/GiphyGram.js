@@ -20,7 +20,7 @@ export const GiphyGram = () => {
       ${getNewMessage() ? MessageEntryForm() : ""} 
       </section>
 </div>
-<div>
+<div id="postEntryFormContainer">
       <section class="postForm">
         ${getNewPost() ? PostEntryForm() : NewPostButton()}
       </section>

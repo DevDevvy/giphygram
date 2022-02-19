@@ -45,22 +45,27 @@ export const Post = () => {
             trashed = `<img class="trash-button" id="trash--${post.id}" src="../images/trash-can.svg" alt="trashIcon"/>`
         }
 
-        return `<h2>${post.title}</h2>
+        return `
+        <section class="post_container">
+        <h2>${post.title}</h2>
         <img id="post--${post.id}"" class="postImage" src="${post.imageURL}">
-        <div class="description">
-        ${post.description}
-        </div>
-        <div class="post_tagline">
-        Posted By: ${foundPoster} on ${post.timestamp}
-        </div>
-        <div class="postButtons">
-        <div id="favoriteButton">
-        ${liked}
-        </div>
-        <div id="trashButton">
-        ${trashed}
-        </div>
-        </div>
+        <section class="description_buttons_containter">
+            <div class="description">
+                <h4>${post.description}</h4>
+                <div class="post_tagline">
+                Posted By: ${foundPoster} on ${post.timestamp}
+                </div>
+            </div>
+            <div class="postButtons">
+                <div id="favoriteButton">
+                    ${liked}
+                </div>
+                <div id="trashButton">
+                ${trashed}
+                </div>
+            </div>
+        </section>
+        </section>
         `
     }).join("")
 html+=PostArray
@@ -147,7 +152,14 @@ if (click.target.id === "post-button") {
     } 
 }
 })
-
+// post form cancel button
+document.addEventListener("click", (click) => {
+if (click.target.id === "cancelPost") {
+    //if pen icon is clicked, then display the message form
+    //invoke function that displays message form HTML
+        setNewPost(false)
+}
+})
 
 
 //add the timestamp date by defining a getDate function
