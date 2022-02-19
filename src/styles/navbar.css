@@ -10,12 +10,20 @@
     flex-grow: 1;
     padding: 3px;
 }
+#logo:hover {
+    cursor: pointer;
+}
 
 .pen_icon {
     height: 1.5em;
     padding: 3px;
 }
-
+#penMessage:hover {
+    cursor: pointer;
+}
+#message_count {
+    cursor: pointer;
+}
 .navigation {
     display: flex;
     flex-wrap: nowrap;
