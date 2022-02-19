@@ -34,6 +34,13 @@
 .postForm {
     background-color: rgb(252, 241, 222);
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.title {
+
 }
 
 /* container with all posts */
@@ -42,6 +49,7 @@
     justify-content: center;
     padding: 1em;
     margin: .5em;
+    
 }
 
 .post {
@@ -50,4 +58,11 @@
 
 #trashButton {
 
+}
+
+.messageContainer {
+    background-color: rgb(198, 241, 227);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
 }

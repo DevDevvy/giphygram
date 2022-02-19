@@ -7,7 +7,10 @@ export const NewPostButton = ()=> {
 //We'll generate unordered list HTML representation of the users choices in the post entry form
 export const Post = () => {
     const userState = getUsers()
-    const posts = getPosts()
+    // get posts
+    const postArray = getPosts()
+    // reverse posts to show up as newest one on top of feed
+    const posts = postArray.reverse()
     let html = "<section class='post'>"
     const PostArray= posts.map(post => {
         const foundUserId = parseInt(localStorage.getItem("gg_user"))
