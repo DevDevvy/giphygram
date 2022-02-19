@@ -46,18 +46,20 @@ export const Post = () => {
         }
 
         return `<h2>${post.title}</h2>
-        <img id="post--${post.id} class="postImage" src="${post.imageURL}">
+        <img id="post--${post.id}"" class="postImage" src="${post.imageURL}">
         <div class="description">
         ${post.description}
         </div>
         <div class="post_tagline">
         Posted By: ${foundPoster} on ${post.timestamp}
         </div>
+        <div class="postButtons">
         <div id="favoriteButton">
         ${liked}
         </div>
         <div id="trashButton">
         ${trashed}
+        </div>
         </div>
         `
     }).join("")

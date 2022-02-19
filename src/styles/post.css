@@ -3,17 +3,17 @@
 }
 
 .favorite-button-hollow {
-    height: 40px;
+    height: 20px;
     display: inline-block;
 }
 
 .favorite-button-yellow {
-    height: 40px;
+    height: 20px;
     display: inline-block;
 }
 
 .trash-button {
-    height: 40px;
+    height: 20px;
 }
 /* trash button container */
 #trashButton {
@@ -29,6 +29,11 @@
     text-align: center;
     cursor: pointer;
     box-shadow: 2px 2px 9px 1px;
+}
+
+#postButtons {
+    display: flex;
+    justify-content: flex-end;
 }
 /* pop up form at top of app */
 .postForm {
@@ -54,6 +59,7 @@
 
 .post {
     padding: 1em;
+    margin: 1em;
 }
 
 #trashButton {
@@ -65,4 +71,8 @@
     border: 1px solid black;
     display: flex;
     justify-content: center;
+}
+
+.postImage {
+    box-shadow: 4px 1px 4px 1px;
 }
