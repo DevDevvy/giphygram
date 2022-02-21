@@ -12,7 +12,8 @@ const applicationState = {
         displayMessages: [],
         newPost: false,
         datePosted: null,
-        newMessage: false
+        newMessage: false,
+        filteredPostsArray: []
     }
 }
 
@@ -239,4 +240,10 @@ export const deletePost = (id) => {
                 mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
             }
         )
+}
+
+
+export const setDatePosted = (post) => {
+    applicationState.feed.datePosted = post
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
