@@ -1,0 +1,18 @@
+
+.messageInbox {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.deliveredMessages {
+
+}
+
+.aMessage {
+    padding: 1em;
+    margin: 10px;
+    border: 1px solid black;
+    box-shadow: 1px 0px 5px 1px;
+    background-color: rgb(165, 215, 248);
+}

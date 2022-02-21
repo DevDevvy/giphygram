@@ -7,7 +7,10 @@ export const NewPostButton = ()=> {
 //We'll generate unordered list HTML representation of the users choices in the post entry form
 export const Post = () => {
     const userState = getUsers()
-    const posts = getPosts()
+    // get posts
+    const postArray = getPosts()
+    // reverse posts to show up as newest one on top of feed
+    const posts = postArray.reverse()
     let html = "<section class='post'>"
     const PostArray= posts.map(post => {
         const foundUserId = parseInt(localStorage.getItem("gg_user"))
@@ -42,20 +45,27 @@ export const Post = () => {
             trashed = `<img class="trash-button" id="trash--${post.id}" src="../images/trash-can.svg" alt="trashIcon"/>`
         }
 
-        return `<h2>${post.title}</h2>
-        <img id="post--${post.id} class="postImage" src="${post.imageURL}">
-        <div class="description">
-        ${post.description}
-        </div>
-        <div class="post_tagline">
-        Posted By: ${foundPoster} on ${post.timestamp}
-        </div>
-        <div id="favoriteButton">
-        ${liked}
-        </div>
-        <div id="trashButton">
-        ${trashed}
-        </div>
+        return `
+        <section class="post_container">
+        <h2>${post.title}</h2>
+        <img id="post--${post.id}"" class="postImage" src="${post.imageURL}">
+        <section class="description_buttons_containter">
+            <div class="description">
+                <h4>${post.description}</h4>
+                <div class="post_tagline">
+                Posted By: ${foundPoster} on ${post.timestamp}
+                </div>
+            </div>
+            <div class="postButtons">
+                <div id="favoriteButton">
+                    ${liked}
+                </div>
+                <div id="trashButton">
+                ${trashed}
+                </div>
+            </div>
+        </section>
+        </section>
         `
     }).join("")
 html+=PostArray
@@ -142,7 +152,14 @@ if (click.target.id === "post-button") {
     } 
 }
 })
-
+// post form cancel button
+document.addEventListener("click", (click) => {
+if (click.target.id === "cancelPost") {
+    //if pen icon is clicked, then display the message form
+    //invoke function that displays message form HTML
+        setNewPost(false)
+}
+})
 
 
 //add the timestamp date by defining a getDate function

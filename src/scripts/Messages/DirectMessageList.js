@@ -11,12 +11,13 @@ const aMessage = (message) => {
         return `
         <section class='aMessage'>
         <div class="senderInfo">
-        From: ${sender.name}
+        <h4>From: ${sender.name}</h4>
         </div>
         <div class="sentMessageBody">
         ${message.text}
         </div>
         </section>
+        <hr/>
         `
 }
 

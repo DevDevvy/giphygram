@@ -17,7 +17,7 @@ export const PostEntryForm = () => {
 <textarea name="description" class="newPost_description" placeholder="Story behind your gif..."></textarea>
 </section>
 
-<section>
+<section class="postButtons">
 <button class="button" id="savePost">Save</button>
 
 <button class="button" id="cancelPost">Cancel</button>

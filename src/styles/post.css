@@ -1,11 +1,120 @@
+#favoriteButton {
+    display: inline-block;
+    
+}
+#favoriteButton:hover {
+    cursor: pointer;
+}
+
 .favorite-button-hollow {
-    height: 40px;
+    height: 25px;
+    display: inline-block;
+}
+.favorite-button-hollow:hover {
+    cursor: pointer;
 }
 
 .favorite-button-yellow {
-    height: 40px;
+    height: 25px;
+    display: inline-block;
+}
+.favorite-button-yellow:hover {
+    cursor: pointer;
 }
 
 .trash-button {
-    height: 40px;
+    height: 25px;
+}
+.trash-button:hover {
+    cursor: pointer;
+}
+/* trash button container */
+#trashButton {
+    display: inline-block;
+    align-content: space-between;
+}
+/* "Have a gif to post?" button */
+#post-button {
+    padding: 1rem;
+    margin: 0 25%;
+    border: 1px solid slategrey;
+    background-color: rgb(245, 236, 224);
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 9px 1px;
+}
+
+#postButtons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post_container {
+    box-shadow: .5px .2px 6px .1px;
+    padding: 1em;
+}
+
+.description_buttons_containter {
+    display: flex;
+    justify-content: space-around;
+}
+/* pop up form at top of app */
+
+#postEntryFormContainer {
+    
+}
+.postForm {
+    background-color: rgb(252, 241, 222);
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.title {
+    margin: 5px;
+    
+}
+.URL {
+    margin: 5px;
+}
+.story {
+    margin: 5px;
+}
+.postButtons {
+    margin: 5px;
+}
+
+/* container with all posts */
+.postFeed {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    margin: .5em;
+    gap: 10px;
+}
+
+.post {
+    padding: 1em;
+    margin: 1em;
+}
+
+.postImage {
+    margin: 12px;
+}
+
+#trashButton {
+
+}
+
+.messageContainer {
+    background-color: rgb(198, 241, 227);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+.postImage {
+    box-shadow: 4px 1px 4px 1px;
 }

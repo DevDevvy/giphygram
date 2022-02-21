@@ -39,14 +39,6 @@
   ],
   "posts": [
     {
-      "id": 1,
-      "userId": 1,
-      "title": "My first post",
-      "imageURL": "https://media.giphy.com/media/3oz8xyUoD2HlTIcdTW/giphy.gif",
-      "description": "Jianbing butcher post-ironic brunch marfa, listicle quinoa kickstarter vinyl poke cornhole snackwave yr flexitarian.",
-      "timestamp": 1508080619498
-    },
-    {
       "id": 3,
       "userId": 2,
       "title": "Graduation!",
@@ -61,14 +53,6 @@
       "userId": 2,
       "timestamp": 1617396786968,
       "id": 4
-    },
-    {
-      "title": "test",
-      "imageURL": "https://media.giphy.com/media/yNOFB35i00pRLLrmdI/giphy.gif",
-      "description": "testing",
-      "userId": 1,
-      "timestamp": "2/15/2022",
-      "id": 5
     },
     {
       "title": "test",
@@ -143,12 +127,28 @@
       "id": 14
     },
     {
-      "title": "test",
-      "imageURL": "https://media.giphy.com/media/yNOFB35i00pRLLrmdI/giphy.gif",
-      "description": "fdgd",
+      "title": "blessings",
+      "imageURL": "https://media.giphy.com/media/d68IdpvmAHohx5NMEV/giphy.gif",
+      "description": "Keanu",
       "userId": 1,
-      "timestamp": "2/15/2022",
+      "timestamp": "2/18/2022",
       "id": 15
+    },
+    {
+      "title": "Wise One",
+      "imageURL": "https://media.giphy.com/media/pvDp7Ewpzt0o8/giphy.gif",
+      "description": "Yogurt knows",
+      "userId": 1,
+      "timestamp": "2/18/2022",
+      "id": 16
+    },
+    {
+      "title": "Follow the Data",
+      "imageURL": "https://media.giphy.com/media/3orifd0AifrXiY0Kv6/giphy.gif",
+      "description": "This is a post to let me follow the data. ",
+      "userId": 1,
+      "timestamp": "2/18/2022",
+      "id": 17
     }
   ],
   "likes": [
@@ -174,7 +174,7 @@
     },
     {
       "userId": 1,
-      "postId": 1,
+      "postId": 6,
       "id": 6
     }
   ],
