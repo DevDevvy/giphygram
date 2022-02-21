@@ -31,9 +31,11 @@ export const GiphyGram = () => {
       </section>
 
       </div>
-        <footer>
+      <div >
+        <footer >
   ${Footer()}
         </footer>
+        <div>
 
       
       

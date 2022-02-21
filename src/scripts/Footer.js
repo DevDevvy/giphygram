@@ -32,6 +32,7 @@ export const Footer = () => {
         return `   <option value="${user.id}">${user.name}</option>`
     }).join("")
         }
+        </select>
             </div> 
 
             <div class="footer__item">

@@ -4,3 +4,17 @@
 
 }
 
+.footer {
+    display: flex;
+    z-index: 3;
+    position: fixed;
+    bottom: 0;
+    background-color: grey;
+    width: 100% ;
+justify-content:start;
+gap:3em;
+padding: 15px;
+
+}
+
+
