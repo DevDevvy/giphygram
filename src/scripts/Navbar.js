@@ -1,6 +1,6 @@
 //Dispays logo, title, pen icon, message count icon, and logout
 
-import { setNewMessage, getNewMessage, getUsersMessages } from "./Data/DataAccess.js"
+import { setNewMessage, getNewMessage, getUsersMessages, getMessages, getUsers, readMessages } from "./Data/DataAccess.js"
 import { renderLogin } from "./main.js"
 
 const mainContainer = document.querySelector("#container")
@@ -88,6 +88,21 @@ document.addEventListener("click", (clickEvent) => {
 document.addEventListener("click", (click) => {
     //target the pen icon in nav bar to display message form
 if (click.target.id === "message_count") {
+    const messages = getMessages()
+    const userState = getUsers()
+    const foundUserId = parseInt(localStorage.getItem("gg_user"))
+    const foundUser = userState.find(
+        (user) => {
+            return foundUserId === user.id
+        }
+    )
+    const userMessages = messages.filter(message => {
+        if (foundUserId === message.recipientId) {
+            const clearMessages = message.read
+            message.read = true
+            readMessages(message)
+        }
+    })
     mainContainer.dispatchEvent(new CustomEvent("messageStateChanged"))
 //if clicked, display directMessage HTML
 //re-render HTML in main.js similar to login to only display direct message inbox and not post feed
@@ -96,3 +111,4 @@ if (click.target.id === "message_count") {
 
 }
 })
+
