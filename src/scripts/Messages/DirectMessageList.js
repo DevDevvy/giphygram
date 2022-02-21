@@ -36,8 +36,3 @@ export const messageInbox = () => {
 
 
 
-//if matched, then display message count in nav bar
-    //create array for displayMessages for current user
-    //message count = array.length of displayMessages && read = false
-
-
