@@ -190,6 +190,22 @@ export const setFavorite = (postId) => {
         })
 }
 
+export const readMessages = (read) => {
+    const fetchOptions = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(read)
+    }
+    // put message id in path as read.id
+    return fetch(`${API}/messages/${read.id}`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        })
+}
+
 
 //create a click event listener that listens for the logout button and clears localStorage
 
