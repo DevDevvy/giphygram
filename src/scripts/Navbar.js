@@ -3,6 +3,7 @@
 import { setNewMessage, getNewMessage, getUsersMessages } from "./Data/DataAccess.js"
 import { renderLogin } from "./main.js"
 
+const mainContainer = document.querySelector("#container")
 
 export const NavBarHTML = () => {
     const allMessages = getUsersMessages()
@@ -73,4 +74,25 @@ document.addEventListener("click", (clickEvent) => {
     if (clickEvent.target.id === "logo") {
         mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
     }
+})
+
+
+//if matched, then display message count in nav bar
+    //create array for displayMessages for current user
+    //message count = array.length of displayMessages && read = false
+
+
+//message count is rendered when current user has a message in their inbox
+//links to message inbox when clicked - click event
+//create event listener for message icon
+document.addEventListener("click", (click) => {
+    //target the pen icon in nav bar to display message form
+if (click.target.id === "message_count") {
+    mainContainer.dispatchEvent(new CustomEvent("messageStateChanged"))
+//if clicked, display directMessage HTML
+//re-render HTML in main.js similar to login to only display direct message inbox and not post feed
+//also if clicked, then let message = 0 && 
+    //use forEach to change read property in messages to false for the messages that match the current user id
+
+}
 })
