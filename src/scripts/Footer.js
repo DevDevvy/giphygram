@@ -12,7 +12,7 @@ const postsSince = (year) => {
     const postsSinceYear = []
 
     for (const post of posts) {
-        const yearTimestamp = post.timestamp.slice(post.timestamp.length - 4, post.timestamp.length)
+        const yearTimestamp = post.timestamp.toString().slice(post.timestamp.length - 4, post.timestamp.length)
         if (parseInt(yearTimestamp) >= epoch) {
             postsSinceYear.push(post)
         }
